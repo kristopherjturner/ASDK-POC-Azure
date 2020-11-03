@@ -1,5 +1,5 @@
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "virtualMachineName": {
@@ -96,7 +96,7 @@
                 "name": "https://<Azure Blob Storage Prefix>.blob.core.windows.net/<Container Name>/<VHD Name>.vhd"
             }
         },
-        "postConfigScriptLocation": { 
+        "postConfigScriptLocation": {
             "defaultValue": "https://raw.githubusercontent.com/yagmurs/AzureStack-VM-PoC/development/scripts",
             "type": "string",
             "metadata": {
@@ -104,7 +104,7 @@
                 "name": "https://raw.githubusercontent.com/yagmurs/AzureStack-VM-PoC/development/scripts"
             }
         },
-        "postConfigScriptFilename": { 
+        "postConfigScriptFilename": {
             "defaultValue": "post-config.ps1",
             "type": "string",
             "metadata": {
@@ -219,14 +219,15 @@
                         "id": "[resourceId('Microsoft.Compute/Images', variables('imageName'))]"
                     },
                     "osDisk": {
-                        "createOption":"FromImage",
+                        "createOption": "FromImage",
                         "diskSizeGB": "[variables('osDiskSizeinGB')]",
                         "name": "[concat(parameters('virtualMachineName'),'-osdisk')]",
                         "managedDisk": {
                             "storageAccountType": "Premium_LRS"
-                    }
+                        }
                     },
-                    "copy": [{
+                    "copy": [
+                        {
                             "name": "dataDisks",
                             "count": "[parameters('dataDiskCount')]",
                             "input": {
@@ -273,7 +274,7 @@
                         }
                     }
                 }
-            ] 
+            ]
         },
         {
             "type": "Microsoft.Network/virtualNetworks",

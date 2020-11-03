@@ -7,8 +7,11 @@ $rg = 'ash_asdk_westus2_RG'
 $version = $versionContainerName.split("-")[0]
 
 New-Item -Path $defaultLocalPath -ItemType Directory -Force
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/yagmurs/AzureStack-VM-PoC/development/scripts/ASDKHelperModule.psm1" -OutFile "$defaultLocalPath\ASDKHelperModule.psm1"
+Invoke-WebRequest -Uri "https://github.com/kristopherjturner/ASDK-POC-Azure/blob/main/scripts/ASDKHelperModule.psm1" -OutFile "$defaultLocalPath\ASDKHelperModule.psm1"
 Import-Module "$defaultLocalPath\ASDKHelperModule.psm1" -Force
+
+#  Following is location of the cloudbuilder.vhdx file  Will be used later. For now, make sure vhdx is located in "D:\Azure Stack Development Kit\"  If different location change below.
+#  $vhdxpath = Read-Host -Prompt "Public DNS prefix"
 $asdkDownloadPath = "D:\"
 $asdkExtractFolder = "Azure Stack Development Kit"
 $d = Join-Path -Path $asdkDownloadPath -ChildPath $asdkExtractFolder

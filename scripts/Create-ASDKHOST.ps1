@@ -16,7 +16,7 @@ $templateParameterObject = @{
     dataDiskCount = 8
     osDiskVhdUri = $sa.PrimaryEndpoints.Blob + "vhd/asdk2005.vhd"
 }
-New-AzResourceGroupDeployment -ResourceGroupName $rg -Name AzureStackonAzureVM -TemplateUri "https://github.com/kristopherjturner/AzureStack-VM-PoC/blob/master/CCB/azuredeploy.json" -TemplateParameterObject $templateParameterObject
+New-AzResourceGroupDeployment -ResourceGroupName $rg -Name AzureStackonAzureVM -TemplateUri "https://github.com/kristopherjturner/ASDK-POC-Azure/blob/main/azuredeploy.json" -TemplateParameterObject $templateParameterObject
 
 #region 1
 #region 2
